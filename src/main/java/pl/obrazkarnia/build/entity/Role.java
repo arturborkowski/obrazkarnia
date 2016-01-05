@@ -5,16 +5,19 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class SearchHistory {
+public class Role {
 
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
-	private User user;
-	private List<Picture> pictures;
+	private String name;
+	
+	@ManyToMany(mappedBy="roles")
+	private List<User> users;
 	
 	
 	public Integer getId() {
@@ -23,17 +26,17 @@ public class SearchHistory {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public User getUser() {
-		return user;
+	public String getName() {
+		return name;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public List<Picture> getPictures() {
-		return pictures;
+	public List<User> getUsers() {
+		return users;
 	}
-	public void setPictures(List<Picture> pictures) {
-		this.pictures = pictures;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 	
