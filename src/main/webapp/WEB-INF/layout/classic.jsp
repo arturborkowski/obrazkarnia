@@ -15,22 +15,28 @@
 	prefix="security"%>
 
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
 
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><tiles:getAsString name="title" /></title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	crossorigin="anonymous">
 
+<%-- <spring:url value="/style/css/bootstrap.min.css" var="bootstrapCss" /> --%>
 <spring:url value="/style/css/style.css" var="styleCss" />
 <spring:url value="/style/images/login-icon.png" var="loginIcon" />
 <spring:url value="/style/images/register-icon.png" var="registerIcon" />
+
 <!-- Custom CSS -->
+<%-- <link rel="stylesheet" href='${bootstrapCss}'> --%>
 <link rel="stylesheet" href='${styleCss}'>
+
+
+
 </head>
 <body>
 
@@ -65,14 +71,18 @@
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li class="${current == 'users' ? 'active': ''}"><a
 							href='<spring:url value="/users.html"/>'>Użytkownicy</a></li>
-					</security:authorize>
-					<li class="${current == 'register' ? 'active': ''}"><a
-						href='<spring:url value="/register.html"/>'>Rejestracja</a></li>
+					</security:authorize>					
 					<security:authorize access="! isAuthenticated()">
+						<li class="${current == 'register' ? 'active': ''}"><a
+							href='<spring:url value="/register.html"/>'>Rejestracja</a></li>
 						<li class="${current == 'login' ? 'active': ''}"><a
 							href='<spring:url value="/login.html"/>'>Logowanie</a></li>
 					</security:authorize>
 					<security:authorize access="isAuthenticated()">
+						<li class="${current == 'logout' ? 'active': ''}"><a
+							href='<spring:url value="#"/>'>Historia</a></li>
+						<li class="${current == 'logout' ? 'active': ''}"><a
+							href='<spring:url value="#"/>'>Ulubione</a></li>
 						<li class="${current == 'logout' ? 'active': ''}"><a
 							href='<spring:url value="/logout"/>'>Wyloguj się</a></li>
 					</security:authorize>
