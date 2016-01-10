@@ -39,7 +39,7 @@
 	
 	   <definition name="history" extends="common">
         <put-attribute name="title" value="History" />
-        <put-attribute name="body" value="/WEB-INF/jsp/history.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/history.jsp" />  
         <put-attribute name="current" value="history" />
     </definition>
     
