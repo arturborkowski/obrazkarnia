@@ -21,7 +21,7 @@
 		</form>
 
 	</div>
-</div>
+
 
 
 <br />
@@ -34,7 +34,7 @@
 		$('.fancybox').fancybox();
 	});
 </script>
-<div class="container">
+
 
 	<div class="row">
 
@@ -50,8 +50,6 @@
 							src="${foto.originalSize.url}" alt=""
 							style="width: 28rem; height: 22rem" /></a>
 					</div>
-
-					<br />
 				</c:forEach>
 
 			</div>
